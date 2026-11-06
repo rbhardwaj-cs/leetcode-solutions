@@ -11,6 +11,7 @@ class Solution(object):
         for char in t:
             if char not in count or count[char] == 0:
                 return False
+
             count[char] -= 1
 
         return True
