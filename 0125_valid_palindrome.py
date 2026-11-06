@@ -4,6 +4,7 @@
 # Approach: String Cleaning + Reversal
 # Time Complexity: O(n)
 # Space Complexity: O(n)
+# I still want to optimise this by using less memory 
 
 class Solution(object):
     def isPalindrome(self, s):
