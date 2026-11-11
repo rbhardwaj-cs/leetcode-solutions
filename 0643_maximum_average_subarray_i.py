@@ -1,13 +1,20 @@
+
 # LeetCode 643 - Maximum Average Subarray I
 # Difficulty: Easy
-# Approach: Brute Force (Window Enumeration)
-# Time Complexity: O(n * k)
-# Extra Space Complexity: O(k)
+# Approach: Sliding Window
+# Time Complexity: O(n)
+# Space Complexity: O(1)
 
 class Solution(object):
     def findMaxAverage(self, nums, k):
-        maximum_average = float(sum(nums[0:k]) / k)
-        for i in range(0, len(nums) - k + 1):
-            if maximum_average < sum(nums[i:i+k]) / k:
-                maximum_average = sum(nums[i:i+k]) / k
+        window_sum = sum(nums[:k])
+        maximum_average = window_sum / k
+
+        for i in range(k, len(nums)):
+            window_sum = window_sum - nums[i - k] + nums[i]
+            current_average = window_sum / k
+
+            if current_average > maximum_average:
+                maximum_average = current_average
+
         return maximum_average
